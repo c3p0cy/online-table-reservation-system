@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
   
   <properties>
-    <start-class>${project.groupId}.restaurant.RestaurantApp</start-class>
+    <!-- <start-class>${project.groupId}.restaurant.RestaurantApp</start-class> -->
   </properties>
 
   <dependencies>

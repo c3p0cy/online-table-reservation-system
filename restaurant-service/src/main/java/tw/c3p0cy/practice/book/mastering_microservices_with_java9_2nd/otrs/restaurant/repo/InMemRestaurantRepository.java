@@ -7,15 +7,16 @@ import java.util.stream.Collectors;
 import tw.c3p0cy.practice.book.mastering_microservices_with_java9_2nd.otrs.restaurant.entity.Entity;
 import tw.c3p0cy.practice.book.mastering_microservices_with_java9_2nd.otrs.restaurant.entity.Restaurant;
 
+@org.springframework.stereotype.Repository("restaurantRepository")
 public class InMemRestaurantRepository implements RestaurantRepository<Restaurant, String> {
 
   private Map<String, Restaurant> entities;
 
   public InMemRestaurantRepository() {
     entities = new HashMap<String, Restaurant>();
-    Restaurant restaurant = new Restaurant("Big-O Restaurant", "1", null);
+    Restaurant restaurant = new Restaurant("Big-O Restaurant", "1", "address 1", null);
     entities.put("1", restaurant);
-    restaurant = new Restaurant("O Restaurant", "2", null);
+    restaurant = new Restaurant("O Restaurant", "2", "address 2", null);
     entities.put("2", restaurant);
   }
 

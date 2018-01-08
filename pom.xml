@@ -25,9 +25,9 @@
 
   <modules>
     <module>restaurant-service</module>
-    <!-- <module>eureka-service</module>
+    <module>eureka-service</module>
     <module>user-service</module>
-    <module>booking-service</module> -->
+    <module>booking-service</module>
   </modules>
 
   <dependencyManagement>
