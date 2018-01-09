@@ -15,7 +15,7 @@ error:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:39001/eureka/
+      defaultZone: http://localhost:39000/eureka/
 
 # HTTP Server
 server:
