@@ -19,8 +19,28 @@ zuul:
     ## You can use a URL in place of a service, if the Eureka server is not used.
     restaurantapi:
       path: /restaurantapi/**
-      #serviceId: restaurant-service
-      serviceId: http://localhost:39001
+      serviceId: restaurant-service
+      #serviceId: http://localhost:39001
       ## to strip the prefix (/restaurantapi), and the resultant /restaurantapi/v1/restaurants/1 call converts to /v1/restaurants/1
       stripPrefix: true
 
+server:
+  port: 39004
+  
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 5
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+    #serviceUrl:
+      #defaultZone: http://localhost:39000/eureka/
+    #fetchRegistry: false
+  ## Discovery Server Access
+  client:
+    registryFetchIntervalSeconds: 5
+    instanceInfoReplicationIntervalSeconds: 5
+    initialInstanceInfoReplicationIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:39000/eureka/
+    fetchRegistry: true
