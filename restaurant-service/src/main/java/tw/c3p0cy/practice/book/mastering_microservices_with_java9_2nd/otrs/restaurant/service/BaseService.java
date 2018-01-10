@@ -3,16 +3,13 @@ package tw.c3p0cy.practice.book.mastering_microservices_with_java9_2nd.otrs.rest
 import java.util.Collection;
 import tw.c3p0cy.practice.book.mastering_microservices_with_java9_2nd.otrs.restaurant.repo.Repository;
 
-public abstract class BaseService<TE, T> {
+public abstract class BaseService<TE, T> extends ReadOnlyBaseService<TE, T> {
 
-  private Repository<TE, T> repository;
+  private Repository<TE, T> _repository;
 
   BaseService(Repository<TE, T> repository) {
-    this.repository = repository;
-  }
-
-  public Repository<TE, T> getRepository() {
-    return repository;
+    super(repository);
+    _repository = repository;
   }
 
   /**
@@ -21,7 +18,7 @@ public abstract class BaseService<TE, T> {
    * @throws Exception
    */
   public void add(TE entity) throws Exception {
-    repository.add(entity);
+    _repository.add(entity);
   }
 
   /**
@@ -29,7 +26,12 @@ public abstract class BaseService<TE, T> {
    * @return
    */
   public Collection<TE> getAll() {
-    return repository.getAll();
+    return _repository.getAll();
   }
+
+  public Repository<TE, T> getRepository() {
+    return _repository;
+  }
+
 
 }

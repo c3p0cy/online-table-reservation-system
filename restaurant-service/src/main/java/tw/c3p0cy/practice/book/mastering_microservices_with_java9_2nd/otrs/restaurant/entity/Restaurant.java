@@ -8,16 +8,10 @@ public class Restaurant extends BaseEntity<String> {
   private List<Table> tables = new ArrayList<Table>();
   private String address;
 
-  public Restaurant(String id, String name, String address, List<Table> tables) {
+  public Restaurant(String name, String id, String address, List<Table> tables) {
     super(id, name);
     this.tables = tables;
     this.address = address;
-  }
-
-  @Override
-  public String toString() {
-    return String.format("{id: %s, name: %s, address: %s, tables: %s}", this.getId(),
-        this.getName(), this.getAddress(), this.getTables());
   }
 
   public void setTables(List<Table> tables) {
@@ -34,6 +28,12 @@ public class Restaurant extends BaseEntity<String> {
 
   public void setAddress(String address) {
     this.address = address;
+  }
+
+  @Override
+  public String toString() {
+    return String.format("{id: %s, name: %s, address: %s, tables: %s, isModified: %s}",
+        this.getId(), this.getName(), this.getAddress(), this.getTables(), super.isIsModified());
   }
 
 }

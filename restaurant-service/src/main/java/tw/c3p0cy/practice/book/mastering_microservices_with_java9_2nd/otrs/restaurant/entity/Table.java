@@ -1,11 +1,13 @@
 package tw.c3p0cy.practice.book.mastering_microservices_with_java9_2nd.otrs.restaurant.entity;
 
 import java.math.BigInteger;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Table extends BaseEntity<BigInteger> {
   private int capacity;
 
-  public Table(String name, BigInteger id, int capacity) {
+  public Table(@JsonProperty("name") String name, @JsonProperty("id") BigInteger id,
+      @JsonProperty("capacity") int capacity) {
     super(id, name);
     this.capacity = capacity;
   }

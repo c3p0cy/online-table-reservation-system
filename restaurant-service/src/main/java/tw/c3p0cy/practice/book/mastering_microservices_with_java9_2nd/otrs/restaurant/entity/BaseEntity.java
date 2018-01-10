@@ -7,14 +7,11 @@ public abstract class BaseEntity<T> extends Entity<T> {
   public BaseEntity(T id, String name) {
     super.setId(id);
     super.setName(name);
+    isModified = false;
   }
 
-  public boolean isModified() {
+  public boolean isIsModified() {
     return isModified;
-  }
-
-  public void setModified(boolean isModified) {
-    this.isModified = isModified;
   }
 
 }

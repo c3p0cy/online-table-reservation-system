@@ -6,14 +6,14 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class App {
+public class RestaurantApp {
 
   /**
    *
    * @param args
    */
   public static void main(String[] args) {
-    SpringApplication.run(App.class, args);
+    SpringApplication.run(RestaurantApp.class, args);
   }
 
 }

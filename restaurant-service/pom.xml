@@ -8,9 +8,10 @@
   </parent>
   <artifactId>restaurant-service</artifactId>
   <packaging>jar</packaging>
-  
+  <name>online-table-reservation:restaurant-service</name>
+
   <properties>
-    <!-- <start-class>${project.groupId}.restaurant.RestaurantApp</start-class> -->
+    <start-class>${project.groupId}.restaurant.RestaurantApp</start-class>
   </properties>
 
   <dependencies>
