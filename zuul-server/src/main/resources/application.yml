@@ -1,0 +1,26 @@
+info:
+  component: Zuul Server
+spring:
+  application:
+    name: zuul-server
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  ## This skips the automatic addition of services. We can define service ID patterns here. The * denotes that we are ignoring all services.
+  ignoredServices: "*"
+  routes:
+    ## Here, /restaurantapi is mapped to restaurant-service using the serviceId attribute. The serviceId attribute represents the service in the Eureka server.
+    ## You can use a URL in place of a service, if the Eureka server is not used.
+    restaurantapi:
+      path: /restaurantapi/**
+      #serviceId: restaurant-service
+      serviceId: http://localhost:39001
+      ## to strip the prefix (/restaurantapi), and the resultant /restaurantapi/v1/restaurants/1 call converts to /v1/restaurants/1
+      stripPrefix: true
+
